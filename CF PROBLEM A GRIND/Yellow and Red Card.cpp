@@ -1,22 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
+#include <bits/stdc++.h>
+using namespace std;
 
 #define ll long long
 #define dl long double
 #define vi vector<int>
 #define vl vector<ll>
-#define vpi vector<pair<int, int>>
-#define vpl vector<pair<ll, ll>>
+#define vpi vector<pair<int,int>>
+#define vpl vector<pair<ll,ll>>
 #define pb push_back
 #define mp make_pair
-#define mii map<int, int>
-#define mll map<ll, ll>
+#define mii map<int,int>
+#define mll map<ll,ll>
 #define ff first
 #define ss second
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
+#define yes cout << "Yes\n"
+#define no cout << "No\n"
 #define p(x) cout << x << endl;
 #define brk cout << "\n";
 #define f(i, a, n) for (int i = a; i < n; i++)
@@ -37,49 +35,45 @@
 #define lwr transform(s.begin(), s.end(), s.begin(), ::tolower)
 #define PI 3.14159265358979323846
 
-using namespace std;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void ok() {
 
-bool check_date(const vi& digits) {
-    vi target = {0, 1, 0, 3, 2, 0, 2, 5};
-    vi temp = digits;
+int n, q;
+cin>>n>>q;
+vector<tuple<int,int>> a(n);
+for(int i=0; i<n; i++) {
+    a[i]={0,0};
+}
+while(q--){
+    int x,y;
+    cin>>x>>y;
+    if(x==1){
+        a[y-1]={get<0>(a[y-1])+1,get<1>(a[y-1])};
 
-    sort(all(temp));
-
-    vi date;
-    for (int digit : target) {
-        auto it = find(all(temp), digit);
-        if (it != temp.end()) {
-            date.pb(digit);
-            temp.erase(it);
-        } else {
-            return false;
-        }
+    }else if(x==2){
+        a[y-1]={get<0>(a[y-1]),get<1>(a[y-1])+1};
+    }else if(x==3){
+       if(get<0>(a[y-1])>1)yes;
+       else if(get<1>(a[y-1])>=1)yes;
+       
+       else no;
     }
-    return true;
+
 }
 
-int main() {
+
+
+
+
+
+
+
+}
+
+int32_t main() {
     fastio;
-    tc {
-        int n;
-        cin >> n;
-
-        vi digits(n);
-        f(i, 0, n) {
-            cin >> digits[i];
-        }
-
-        int result = 0;
-        f(i, 8, n + 1) {
-            vi sub_digits(digits.begin(), digits.begin() + i);
-            if (check_date(sub_digits)) {
-                result = i;
-                break;
-            }
-        }
-
-        p(result);
-    }
-
+    // tc 
+        ok();
+    
     return 0;
 }

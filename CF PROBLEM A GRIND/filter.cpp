@@ -1,18 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
+#include <bits/stdc++.h>
+using namespace std;
 
 #define ll long long
 #define dl long double
 #define vi vector<int>
 #define vl vector<ll>
-#define vpi vector<pair<int, int>>
-#define vpl vector<pair<ll, ll>>
+#define vpi vector<pair<int,int>>
+#define vpl vector<pair<ll,ll>>
 #define pb push_back
 #define mp make_pair
-#define mii map<int, int>
-#define mll map<ll, ll>
+#define mii map<int,int>
+#define mll map<ll,ll>
 #define ff first
 #define ss second
 #define yes cout << "YES\n"
@@ -37,49 +35,33 @@
 #define lwr transform(s.begin(), s.end(), s.begin(), ::tolower)
 #define PI 3.14159265358979323846
 
-using namespace std;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void ok() {
 
-bool check_date(const vi& digits) {
-    vi target = {0, 1, 0, 3, 2, 0, 2, 5};
-    vi temp = digits;
 
-    sort(all(temp));
 
-    vi date;
-    for (int digit : target) {
-        auto it = find(all(temp), digit);
-        if (it != temp.end()) {
-            date.pb(digit);
-            temp.erase(it);
-        } else {
-            return false;
-        }
+int n;
+cin>> n;
+
+vector<int> a(n);
+for (int i = 0; i < n; i++) {
+    cin >> a[i];
+    if(a[i]%2==0){
+        cout<<a[i]<<" ";
     }
-    return true;
+    }
+
+
+
+
+
+
 }
 
-int main() {
+int32_t main() {
     fastio;
-    tc {
-        int n;
-        cin >> n;
-
-        vi digits(n);
-        f(i, 0, n) {
-            cin >> digits[i];
-        }
-
-        int result = 0;
-        f(i, 8, n + 1) {
-            vi sub_digits(digits.begin(), digits.begin() + i);
-            if (check_date(sub_digits)) {
-                result = i;
-                break;
-            }
-        }
-
-        p(result);
-    }
-
+    // tc 
+        ok();
+    
     return 0;
 }

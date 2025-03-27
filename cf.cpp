@@ -39,18 +39,18 @@
 
 using namespace std;
 
-bool check_date(const vi& digits) {
-    vi target = {0, 1, 0, 3, 2, 0, 2, 5};
-    vi temp = digits;
+bool ck(const vi& di) {
+    vi ta = {0, 1, 0, 3, 2, 0, 2, 5};
+    vi te = di;
 
-    sort(all(temp));
+    sort(all(te));
 
-    vi date;
-    for (int digit : target) {
-        auto it = find(all(temp), digit);
-        if (it != temp.end()) {
-            date.pb(digit);
-            temp.erase(it);
+    vi da;
+    for (int dg : ta) {
+        auto it = find(all(te), dg);
+        if (it != te.end()) {
+            da.pb(dg);
+            te.erase(it);
         } else {
             return false;
         }
@@ -61,24 +61,24 @@ bool check_date(const vi& digits) {
 int main() {
     fastio;
     tc {
-        int n;
-        cin >> n;
+        int nn;
+        cin >> nn;
 
-        vi digits(n);
-        f(i, 0, n) {
-            cin >> digits[i];
+        vi di(nn);
+        f(i, 0, nn) {
+            cin >> di[i];
         }
 
-        int result = 0;
-        f(i, 8, n + 1) {
-            vi sub_digits(digits.begin(), digits.begin() + i);
-            if (check_date(sub_digits)) {
-                result = i;
+        int re = 0;
+        f(i, 8, nn + 1) {
+            vi su(di.begin(), di.begin() + i);
+            if (ck(su)) {
+                re = i;
                 break;
             }
         }
 
-        p(result);
+        p(re);
     }
 
     return 0;

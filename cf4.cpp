@@ -1,7 +1,5 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
-#include <numeric>
 
 #define ll long long
 #define dl long double
@@ -39,47 +37,23 @@
 
 using namespace std;
 
-bool check_date(const vi& digits) {
-    vi target = {0, 1, 0, 3, 2, 0, 2, 5};
-    vi temp = digits;
-
-    sort(all(temp));
-
-    vi date;
-    for (int digit : target) {
-        auto it = find(all(temp), digit);
-        if (it != temp.end()) {
-            date.pb(digit);
-            temp.erase(it);
-        } else {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     fastio;
     tc {
-        int n;
-        cin >> n;
+        ll nn, mm, kk;
+        cin >> nn >> mm >> kk;
 
-        vi digits(n);
-        f(i, 0, n) {
-            cin >> digits[i];
+        ll full_rows = kk / mm;
+        ll remainder = kk % mm;
+
+        ll max_bench_length = 0;
+        if (remainder == 0) {
+            max_bench_length = kk / nn;
+        } else {
+            max_bench_length = (kk + nn - 1) / nn;
         }
 
-        int result = 0;
-        f(i, 8, n + 1) {
-            vi sub_digits(digits.begin(), digits.begin() + i);
-            if (check_date(sub_digits)) {
-                result = i;
-                break;
-            }
-        }
-
-        p(result);
+        p(max_bench_length);
     }
-
     return 0;
 }
