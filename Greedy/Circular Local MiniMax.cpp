@@ -13,8 +13,9 @@ using namespace std;
 #define mll map<ll,ll>
 #define ff first
 #define ss second
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
+#define print(a) for(auto it:a)cout<<it<<" ";cout<<endl;
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
 #define p(x) cout << x << endl;
 #define brk cout << "\n";
 #define f(i, a, n) for (int i = a; i < n; i++)
@@ -38,35 +39,24 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ok() {
 
-
-int n,m;
-cin>>n>>m;
-
-vector<string>a(n),b(m);
+int n;
+cin>>n;
+vector<int>a(n);
 for(int i=0;i<n;i++){
     cin>>a[i];
 }
-for(int i=0;i<m;i++){
-    cin>>b[i];
-    }
-int cnt=0;
+cout<<endl;
 
-for(auto it:a){
-    string x = it;
-    x = x.substr(3,6);
-    auto findi = find(b.begin(), b.end(), x);
-    if(findi != b.end()){
-        cnt++;
-    }
-}
 
-cout<<cnt<<endl;
+
+
+
 
 }
 
 int32_t main() {
     fastio;
-    // tc 
+    tc 
         ok();
     
     return 0;

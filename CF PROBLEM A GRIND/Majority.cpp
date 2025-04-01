@@ -39,28 +39,23 @@ using namespace std;
 void ok() {
 
 
-int n,m;
-cin>>n>>m;
-
-vector<string>a(n),b(m);
-for(int i=0;i<n;i++){
-    cin>>a[i];
+int n;
+cin>>n;
+int f=0,a=0;
+while(n--){
+    string s;
+    cin>>s;
+    if(s=="For")f++;
+    else a++;
+    
 }
-for(int i=0;i<m;i++){
-    cin>>b[i];
-    }
-int cnt=0;
+if(f>a)cout<<"Yes"<<endl;
+else if(a>f)cout<<"No"<<endl;
+else cout<<"Friendship"<<endl;
 
-for(auto it:a){
-    string x = it;
-    x = x.substr(3,6);
-    auto findi = find(b.begin(), b.end(), x);
-    if(findi != b.end()){
-        cnt++;
-    }
-}
 
-cout<<cnt<<endl;
+
+
 
 }
 

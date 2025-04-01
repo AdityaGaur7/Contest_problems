@@ -13,8 +13,9 @@ using namespace std;
 #define mll map<ll,ll>
 #define ff first
 #define ss second
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
+#define print(a) for(auto it:a)cout<<it<<" ";cout<<endl;
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
 #define p(x) cout << x << endl;
 #define brk cout << "\n";
 #define f(i, a, n) for (int i = a; i < n; i++)
@@ -35,39 +36,25 @@ using namespace std;
 #define lwr transform(s.begin(), s.end(), s.begin(), ::tolower)
 #define PI 3.14159265358979323846
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void ok() {
-
-
-int n,m;
-cin>>n>>m;
-
-vector<string>a(n),b(m);
-for(int i=0;i<n;i++){
-    cin>>a[i];
-}
-for(int i=0;i<m;i++){
-    cin>>b[i];
-    }
-int cnt=0;
-
-for(auto it:a){
-    string x = it;
-    x = x.substr(3,6);
-    auto findi = find(b.begin(), b.end(), x);
-    if(findi != b.end()){
-        cnt++;
-    }
-}
-
-cout<<cnt<<endl;
-
-}
-
-int32_t main() {
-    fastio;
-    // tc 
-        ok();
+void solve() {
+    int n; cin >> n;
+    vi a(n);
+    ll s = 0;
+    int o = 0, mx = 0;
     
+    f(i, 0, n) {
+        cin >> a[i];
+        s += a[i];
+        if (a[i] % 2) o++;
+        mx = max(mx, a[i]);
+    }
+    
+    if (o == 0 || o == n) p(mx)
+    else p(s - (o - 1))
+}
+
+int main() {
+    fastio;
+    tc solve();
     return 0;
 }

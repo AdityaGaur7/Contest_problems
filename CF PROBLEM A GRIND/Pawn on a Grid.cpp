@@ -39,28 +39,26 @@ using namespace std;
 void ok() {
 
 
+
 int n,m;
 cin>>n>>m;
-
-vector<string>a(n),b(m);
+int a[n][m];
+int cnt =0;
 for(int i=0;i<n;i++){
-    cin>>a[i];
-}
-for(int i=0;i<m;i++){
-    cin>>b[i];
-    }
-int cnt=0;
-
-for(auto it:a){
-    string x = it;
-    x = x.substr(3,6);
-    auto findi = find(b.begin(), b.end(), x);
-    if(findi != b.end()){
+   string x;
+   cin>>x;
+   for(int j=0;j<m;j++){
+    if(x[j]=='#'){
         cnt++;
     }
+    }
 }
+  cout<<cnt<<endl;
 
-cout<<cnt<<endl;
+ 
+
+
+
 
 }
 

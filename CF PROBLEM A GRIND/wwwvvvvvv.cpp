@@ -5,12 +5,12 @@ using namespace std;
 #define dl long double
 #define vi vector<int>
 #define vl vector<ll>
-#define vpi vector<pair<int,int>>
-#define vpl vector<pair<ll,ll>>
+#define vpi vector<pair<int, int>>
+#define vpl vector<pair<ll, ll>>
 #define pb push_back
 #define mp make_pair
-#define mii map<int,int>
-#define mll map<ll,ll>
+#define mii map<int, int>
+#define mll map<ll, ll>
 #define ff first
 #define ss second
 #define yes cout << "YES\n"
@@ -22,8 +22,14 @@ using namespace std;
 #define rall(x) x.rbegin(), x.rend()
 #define rev(x) reverse(x.begin(), x.end())
 #define sz(x) (int)x.size()
-#define tc int t; cin >> t; while (t--)
-#define fastio ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define tc    \
+    int t;    \
+    cin >> t; \
+    while (t--)
+#define fastio                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
 #define mod 1000000007
 #define endl '\n'
 #define sumy(v, x) accumulate(v.begin(), v.end(), x)
@@ -36,38 +42,32 @@ using namespace std;
 #define PI 3.14159265358979323846
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void ok() {
+void ok()
+{
 
-
-int n,m;
-cin>>n>>m;
-
-vector<string>a(n),b(m);
-for(int i=0;i<n;i++){
-    cin>>a[i];
-}
-for(int i=0;i<m;i++){
-    cin>>b[i];
+    string s;
+    cin >> s;
+    int n = s.size();
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] == 'v')
+        {
+            cnt++;
+        }
+        else
+        {
+            cnt = cnt + 2;
+        }
     }
-int cnt=0;
-
-for(auto it:a){
-    string x = it;
-    x = x.substr(3,6);
-    auto findi = find(b.begin(), b.end(), x);
-    if(findi != b.end()){
-        cnt++;
-    }
+    cout << cnt << endl;
 }
 
-cout<<cnt<<endl;
-
-}
-
-int32_t main() {
+int32_t main()
+{
     fastio;
-    // tc 
-        ok();
-    
+    // tc
+    ok();
+
     return 0;
 }
